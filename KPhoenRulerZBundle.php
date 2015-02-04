@@ -7,12 +7,20 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 use KPhoen\RulerZBundle\DependencyInjection\Compiler\ExecutorsPass;
 
-class RulerZBundle extends Bundle
+class KPhoenRulerZBundle extends Bundle
 {
     public function build(ContainerBuilder $container)
     {
         parent::build($container);
 
         $container->addCompilerPass(new ExecutorsPass());
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getContainerExtension()
+    {
+        return new DependencyInjection\KPhoenRulerZExtension();
     }
 }

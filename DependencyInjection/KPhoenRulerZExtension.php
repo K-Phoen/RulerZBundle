@@ -9,7 +9,7 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\Config\Definition\Processor;
 use Symfony\Component\Config\FileLocator;
 
-class RulerZExtension extends Extension
+class KPhoenRulerZExtension extends Extension
 {
     public function load(array $configs, ContainerBuilder $container)
     {
@@ -35,5 +35,13 @@ class RulerZExtension extends Extension
         $cachedInterpreterDefinition->replaceArgument(2, $config['lifetime']);
 
         $engineDefinition->replaceArgument(0, new Reference('rulerz.interpreter.cached'));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getAlias()
+    {
+        return 'kphoen_rulerz';
     }
 }
