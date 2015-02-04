@@ -1,0 +1,25 @@
+services:
+    rulerz:
+        class:      RulerZ\RulerZ
+        arguments:  [ @rulerz.interpreter.hoa ]
+
+    rulerz.interpreter.hoa:
+        class:  RulerZ\Interpreter\HoaInterpreter
+        public: false
+
+    rulerz.interpreter.cached:
+        class:      RulerZ\Interpreter\CachedInterpreter
+        public:     false
+        arguments:  [ ~, ~, ~ ]
+
+    rulerz.executor.doctrine_orm:
+        class:  RulerZ\Executor\DoctrineQueryBuilderExecutor
+        public: false
+        tags:
+            - { name: rulerz.executor }
+
+    rulerz.executor.array:
+        class:  RulerZ\Executor\ArrayExecutor
+        public: false
+        tags:
+            - { name: rulerz.executor }

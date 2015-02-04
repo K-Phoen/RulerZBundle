@@ -1,0 +1,19 @@
+{
+    "name": "kphoen/rulerz-bundle",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kévin Gomez",
+            "email": "contact@kevingomez.fr"
+        }
+    ],
+    "require": {
+        "kphoen/rulerz": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "KPhoen\\RulerZBundle\\": ""
+        }
+    }
+}
