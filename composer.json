@@ -2,6 +2,9 @@
     "name": "kphoen/rulerz-bundle",
     "type": "symfony-bundle",
     "license": "MIT",
+    "homepage": "https://github.com/K-Phoen/RulerZBundle",
+    "description": "Symfony2 Bundle for RulerZ",
+    "keywords": ["specification", "doctrine"],
     "authors": [
         {
             "name": "Kévin Gomez",
@@ -9,9 +12,7 @@
         }
     ],
     "autoload": {
-        "psr-4": {
-            "KPhoen\\RulerZBundle\\": ""
-        }
+        "psr-4": { "KPhoen\\RulerZBundle\\": "" }
     },
     "require": {
         "kphoen/rulerz": "dev-master"
