@@ -15,7 +15,7 @@
         "psr-4": { "KPhoen\\RulerZBundle\\": "" }
     },
     "require": {
-        "kphoen/rulerz": "dev-master"
+        "kphoen/rulerz": "~0.1"
     },
     "suggests": {
         "doctrine/doctrine-cache-bundle": "To cache rules"
