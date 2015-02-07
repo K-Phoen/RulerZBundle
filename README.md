@@ -29,7 +29,7 @@ Usage
 
 This bundle registers a `rulerz` service which is an instance of `RulerZ\RulerZ`.
 
-```
+```php
 $rulerz = $this->container->get('rulerz');
 
 $rulerz->filter(/* ... */);
@@ -52,10 +52,10 @@ kphoen_rulerz:
 Where `rulerz_cache` is a service implementing \Doctrine\Common\Cache\Cache.
 By default, no cache is used.
 
-*Pro-tip*: the [DoctrineCacheBundle](https://github.com/doctrine/DoctrineCacheBundle)
+**Pro-tip**: the [DoctrineCacheBundle](https://github.com/doctrine/DoctrineCacheBundle)
 can be used to easily manage cache backends.
 
 Licence
 -------
 
-This bundle is under the [MIT](https://github.com/K-Phoen/rulerz/blob/master/README.md) licence.
+This bundle is under the [MIT](https://github.com/K-Phoen/RulerZBundle/blob/master/LICENSE) licence.
