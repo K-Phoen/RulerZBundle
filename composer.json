@@ -8,12 +8,15 @@
             "email": "contact@kevingomez.fr"
         }
     ],
-    "require": {
-        "kphoen/rulerz": "dev-master"
-    },
     "autoload": {
         "psr-4": {
             "KPhoen\\RulerZBundle\\": ""
         }
+    },
+    "require": {
+        "kphoen/rulerz": "dev-master"
+    },
+    "suggests": {
+        "doctrine/doctrine-cache-bundle": "To cache rules"
     }
 }
