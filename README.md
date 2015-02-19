@@ -37,8 +37,8 @@ $rulerz->filter(/* ... */);
 
 ### Cache
 
-RulerZ supports caching rules. The backend used for this cache can be specified
-directly in the configuration:
+RulerZ supports [caching rules](https://github.com/K-Phoen/rulerz/blob/master/doc/caching_rules.md).
+The backend used for this cache can be specified directly in the configuration:
 
 ```yaml
 # app/config/config.yml
@@ -54,6 +54,29 @@ By default, no cache is used.
 
 **Pro-tip**: the [DoctrineCacheBundle](https://github.com/doctrine/DoctrineCacheBundle)
 can be used to easily manage cache backends.
+
+### Custom operators
+
+[Custom operators can be added](https://github.com/K-Phoen/rulerz/blob/master/doc/custom_operators.md)
+to RulerZ executors.
+The bundle provide a way to register new operators directly from the container,
+you just need to tag a service:
+
+```yaml
+services:
+    operator.array.like:
+        class: RulerZ\Operator\ArrayExecutor\Like
+        tags:
+            - { name: rulerz.operator, executor: RulerZ\Executor\ArrayExecutor, operator: like }
+```
+
+In addition to the `rulerz.operator` parameter, two other values are needed:
+* `executor`: the class we want to register the operator to ;
+* `operator`: the name that will be given to the operator.
+
+**Important**: Operators registered as classes must implement the `__invoke`
+magic method as RulerZ expects custom operators to be defined as callable.
+
 
 Licence
 -------
