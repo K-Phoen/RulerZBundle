@@ -23,3 +23,9 @@ services:
         public: false
         tags:
             - { name: rulerz.executor }
+
+    rulerz.executor.elasticsearch:
+        class:  RulerZ\Executor\ElasticsearchExecutor
+        public: false
+        tags:
+            - { name: rulerz.executor }
