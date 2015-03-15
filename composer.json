@@ -17,7 +17,7 @@
     "require": {
         "kphoen/rulerz": "~0.1"
     },
-    "suggests": {
+    "suggest": {
         "doctrine/doctrine-cache-bundle": "To cache rules"
     }
 }
