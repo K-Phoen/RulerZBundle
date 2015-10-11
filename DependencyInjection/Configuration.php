@@ -15,6 +15,7 @@ class Configuration implements ConfigurationInterface
 
         $this->addCacheConfig($rootNode);
         $this->addDebugConfig($rootNode);
+        $this->addExecutorsConfig($rootNode);
 
         return $treeBuilder;
     }
@@ -34,6 +35,25 @@ class Configuration implements ConfigurationInterface
         $rootNode
             ->children()
                 ->booleanNode('debug')->defaultValue('%kernel.debug%')->end()
+            ->end();
+
+        return $rootNode;
+    }
+
+    private function addExecutorsConfig(ArrayNodeDefinition $rootNode)
+    {
+        $rootNode
+            ->children()
+                ->arrayNode('executors')
+                    ->addDefaultsIfNotSet()
+                    ->children()
+                        ->booleanNode('doctrine')->defaultFalse()->end()
+                        ->booleanNode('eloquent')->defaultFalse()->end()
+                        ->booleanNode('pomm')->defaultFalse()->end()
+                        ->booleanNode('elastica')->defaultFalse()->end()
+                        ->booleanNode('elasticsearch')->defaultFalse()->end()
+                    ->end()
+                ->end()
             ->end();
 
         return $rootNode;

@@ -11,6 +11,8 @@ use Symfony\Component\Config\FileLocator;
 
 class KPhoenRulerZExtension extends Extension
 {
+    private $supportedExecutors = ['doctrine', 'eloquent', 'pomm', 'elastica', 'elasticsearch'];
+
     public function load(array $configs, ContainerBuilder $container)
     {
         $config = $this->processConfiguration($this->getConfiguration($configs, $container), $configs);
@@ -23,6 +25,7 @@ class KPhoenRulerZExtension extends Extension
         }
 
         $this->configureCache($container, $config);
+        $this->configureExecutors($loader, $config);
     }
 
     private function configureCache(ContainerBuilder $container, array $config)
@@ -32,6 +35,15 @@ class KPhoenRulerZExtension extends Extension
 
         if (!file_exists($directory) && !@mkdir($directory, 0777, true)) {
             throw new \RuntimeException(sprintf('Could not create cache directory "%s".', $directory));
+        }
+    }
+
+    private function configureExecutors(YamlFileLoader $loader, array $config)
+    {
+        foreach ($this->supportedExecutors as $executor) {
+            if ($config['executors'][$executor]) {
+                $loader-load(sprintf('executors/%s.yml', $executor));
+            }
         }
     }
 

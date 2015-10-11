@@ -1,0 +1,6 @@
+services:
+    rulerz.executor.doctrine:
+        class:  RulerZ\Compiler\Target\Sql\DoctrineQueryBuilderVisitor
+        public: false
+        tags:
+            - { name: rulerz.executor }

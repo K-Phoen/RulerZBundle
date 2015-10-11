@@ -16,26 +16,8 @@ services:
         class:  RulerZ\Parser\HoaParser
         public: false
 
-    rulerz.executor.doctrine_orm:
-        class:  RulerZ\Compiler\Target\Sql\DoctrineQueryBuilderVisitor
-        public: false
-        tags:
-            - { name: rulerz.executor }
-
     rulerz.executor.array:
         class:  RulerZ\Compiler\Target\ArrayVisitor
         public: false
         tags:
             - { name: rulerz.executor }
-
-#    rulerz.executor.elasticsearch:
-#        class:  RulerZ\Executor\ElasticsearchExecutor
-#        public: false
-#        tags:
-#            - { name: rulerz.executor }
-#
-#    rulerz.executor.elastica:
-#        class:  RulerZ\Executor\ElasticaExecutor
-#        public: false
-#        tags:
-#            - { name: rulerz.executor }
