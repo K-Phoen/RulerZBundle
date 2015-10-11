@@ -1,0 +1,7 @@
+services:
+    rulerz.compiler:
+        alias: rulerz.compiler.file
+
+    rulerz.compiler.eval:
+        class:  RulerZ\Compiler\EvalCompiler
+        public: false

@@ -13,28 +13,26 @@ class KPhoenRulerZExtension extends Extension
 {
     public function load(array $configs, ContainerBuilder $container)
     {
-        $processor     = new Processor();
-        $configuration = new Configuration();
-        $config        = $processor->processConfiguration($configuration, $configs);
+        $config = $this->processConfiguration($this->getConfiguration($configs, $container), $configs);
 
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('rulerz.yml');
 
-        if (!empty($config['cache'])) {
-            $this->setupCache($config['cache'], $container);
+        if ($config['debug']) {
+            $loader->load('debug.yml');
         }
+
+        $this->configureCache($container, $config);
     }
 
-    private function setupCache(array $config, ContainerBuilder $container)
+    private function configureCache(ContainerBuilder $container, array $config)
     {
-        $engineDefinition = $container->getDefinition('rulerz');
-        $cachedInterpreterDefinition = $container->getDefinition('rulerz.interpreter.cached');
+        $directory = $container->getParameterBag()->resolveValue($config['cache']);
+        $container->setParameter('rulerz.cache_directory', $directory);
 
-        $cachedInterpreterDefinition->replaceArgument(0, new Reference('rulerz.interpreter.hoa'));
-        $cachedInterpreterDefinition->replaceArgument(1, new Reference($config['provider']));
-        $cachedInterpreterDefinition->replaceArgument(2, $config['lifetime']);
-
-        $engineDefinition->replaceArgument(0, new Reference('rulerz.interpreter.cached'));
+        if (!file_exists($directory) && !@mkdir($directory, 0777, true)) {
+            throw new \RuntimeException(sprintf('Could not create cache directory "%s".', $directory));
+        }
     }
 
     /**

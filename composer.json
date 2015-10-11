@@ -4,7 +4,7 @@
     "license": "MIT",
     "homepage": "https://github.com/K-Phoen/RulerZBundle",
     "description": "Symfony2 Bundle for RulerZ",
-    "keywords": ["specification", "doctrine"],
+    "keywords": ["specification", "doctrine", "ruler", "rulerz"],
     "authors": [
         {
             "name": "Kévin Gomez",
@@ -15,9 +15,6 @@
         "psr-4": { "KPhoen\\RulerZBundle\\": "" }
     },
     "require": {
-        "kphoen/rulerz": "~0.1"
-    },
-    "suggest": {
-        "doctrine/doctrine-cache-bundle": "To cache rules"
+        "kphoen/rulerz": "~0.1, >=0.10.0"
     }
 }

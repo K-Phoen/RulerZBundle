@@ -1,37 +1,41 @@
 services:
     rulerz:
         class:      RulerZ\RulerZ
-        arguments:  [ @rulerz.interpreter.hoa ]
+        arguments:  [ @rulerz.compiler ]
 
-    rulerz.interpreter.hoa:
-        class:  RulerZ\Interpreter\HoaInterpreter
+    rulerz.compiler:
+        alias:  rulerz.compiler.file
         public: false
 
-    rulerz.interpreter.cached:
-        class:      RulerZ\Interpreter\CachedInterpreter
+    rulerz.compiler.file:
+        class:      RulerZ\Compiler\FileCompiler
         public:     false
-        arguments:  [ ~, ~, ~ ]
+        arguments:  [ @rulerz.parser, %rulerz.cache_directory% ]
+
+    rulerz.parser:
+        class:  RulerZ\Parser\HoaParser
+        public: false
 
     rulerz.executor.doctrine_orm:
-        class:  RulerZ\Executor\DoctrineQueryBuilderExecutor
+        class:  RulerZ\Compiler\Target\Sql\DoctrineQueryBuilderVisitor
         public: false
         tags:
             - { name: rulerz.executor }
 
     rulerz.executor.array:
-        class:  RulerZ\Executor\ArrayExecutor
+        class:  RulerZ\Compiler\Target\ArrayVisitor
         public: false
         tags:
             - { name: rulerz.executor }
 
-    rulerz.executor.elasticsearch:
-        class:  RulerZ\Executor\ElasticsearchExecutor
-        public: false
-        tags:
-            - { name: rulerz.executor }
-
-    rulerz.executor.elastica:
-        class:  RulerZ\Executor\ElasticaExecutor
-        public: false
-        tags:
-            - { name: rulerz.executor }
+#    rulerz.executor.elasticsearch:
+#        class:  RulerZ\Executor\ElasticsearchExecutor
+#        public: false
+#        tags:
+#            - { name: rulerz.executor }
+#
+#    rulerz.executor.elastica:
+#        class:  RulerZ\Executor\ElasticaExecutor
+#        public: false
+#        tags:
+#            - { name: rulerz.executor }

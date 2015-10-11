@@ -13,29 +13,27 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('rulerz');
 
-        $this->addCacheNode($rootNode);
+        $this->addCacheConfig($rootNode);
+        $this->addDebugConfig($rootNode);
 
         return $treeBuilder;
     }
 
-    protected function addCacheNode(ArrayNodeDefinition $rootNode)
+    private function addCacheConfig(ArrayNodeDefinition $rootNode)
     {
         $rootNode
             ->children()
-                ->arrayNode('cache')
-                    ->children()
-                        ->scalarNode('provider')
-                            ->isRequired()
-                            ->cannotBeEmpty()
-                        ->end()
-                        ->scalarNode('lifetime')
-                            ->defaultValue(86400)
-                            ->validate()
-                            ->ifTrue(function ($v) { return !is_integer($v); })
-                            ->thenInvalid('Only integer are allowed!')
-                        ->end()
-                    ->end()
-                ->end()
+                ->scalarNode('cache')->defaultValue('%kernel.cache_dir%/rulerz')->end()
+            ->end();
+
+        return $rootNode;
+    }
+
+    private function addDebugConfig(ArrayNodeDefinition $rootNode)
+    {
+        $rootNode
+            ->children()
+                ->booleanNode('debug')->defaultValue('%kernel.debug%')->end()
             ->end();
 
         return $rootNode;
