@@ -18,8 +18,8 @@ class OperatorsPass implements CompilerPassInterface
                     continue;
                 }
 
-                $executors[$attributes['executor']]->addMethodCall('registerOperators', [
-                    [$attributes['operator'] => new Reference($id)]
+                $executors[$attributes['executor']]->addMethodCall('setOperator', [
+                    $attributes['operator'], new Reference($id)
                 ]);
             }
         }
