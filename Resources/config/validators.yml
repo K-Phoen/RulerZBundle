@@ -1,0 +1,6 @@
+services:
+    rulerz.validator.unique.rule_validator:
+        class:     KPhoen\RulerZBundle\Validator\Constraints\RuleValidator
+        arguments: [ @rulerz.parser ]
+        tags:
+            - { name: validator.constraint_validator, alias: rulerz_rule_validator }
