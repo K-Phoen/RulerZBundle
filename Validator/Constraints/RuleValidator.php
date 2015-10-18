@@ -7,6 +7,7 @@ use Symfony\Component\Validator\ConstraintValidator;
 
 use Hoa\Compiler\Exception as CompilerException;
 use Hoa\Ruler\Model as AST;
+use RulerZ\Model\Rule;
 use RulerZ\Parser\Parser;
 
 class RuleValidator extends ConstraintValidator
@@ -30,6 +31,32 @@ class RuleValidator extends ConstraintValidator
             return;
         }
 
+        $this->validateVariableAccesses($model, $constraint);
+        $this->validateOperators($model, $constraint);
+    }
+
+    private function validateOperators(Rule $model, Constraint $constraint)
+    {
+        if ($constraint->allowed_operators === null) {
+            return;
+        }
+
+        $operators = array_map(function(AST\Operator $element) {
+            return $element->getName();
+        }, $model->getOperators());
+
+        foreach ($operators as $operator) {
+            if (!in_array($operator, $constraint->allowed_operators)) {
+                $this->context
+                    ->buildViolation($constraint->operatorNotAllowedMessage)
+                    ->setParameter('%operator%', $operator)
+                    ->addViolation();
+            }
+        }
+    }
+
+    private function validateVariableAccesses(Rule $model, Constraint $constraint)
+    {
         if ($constraint->allowed_variables === null) {
             return;
         }

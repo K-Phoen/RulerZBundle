@@ -15,6 +15,6 @@
         "psr-4": { "KPhoen\\RulerZBundle\\": "" }
     },
     "require": {
-        "kphoen/rulerz": "~0.1, >=0.12.0"
+        "kphoen/rulerz": "~0.1, >=0.13.0"
     }
 }
