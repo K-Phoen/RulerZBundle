@@ -42,7 +42,7 @@ class RuleValidator extends ConstraintValidator
         }
 
         $operators = array_map(function(AST\Operator $element) {
-            return $element->getName();
+            return strtolower($element->getName());
         }, $model->getOperators());
 
         foreach ($operators as $operator) {
@@ -67,7 +67,7 @@ class RuleValidator extends ConstraintValidator
                 $flattenedDimensions[] = $dimension[1];
             }
 
-            return implode('.', $flattenedDimensions);
+            return strtolower(implode('.', $flattenedDimensions));
         }, $model->getAccesses());
 
         foreach ($accesses as $access) {
