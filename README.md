@@ -1,4 +1,4 @@
-RulerZBundle
+RulerZBundle [![Build Status](https://travis-ci.org/K-Phoen/RulerZBundle.svg?branch=master)](https://travis-ci.org/K-Phoen/RulerZBundle)
 ============
 
 This bundle integrates [RulerZ](https://github.com/K-Phoen/rulerz) into Symfony.
