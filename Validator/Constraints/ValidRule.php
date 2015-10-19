@@ -24,6 +24,14 @@ class ValidRule extends Constraint
             'allowed_operators' => null,
         ], $options);
 
+        if (is_array($options['allowed_operators'])) {
+            $options['allowed_operators'] = array_map('strtolower', $options['allowed_operators']);
+        }
+
+        if (is_array($options['allowed_variables'])) {
+            $options['allowed_variables'] = array_map('strtolower', $options['allowed_variables']);
+        }
+
         parent::__construct($options);
 
         if (!array_key_exists('allowed_variables', $options)) {
