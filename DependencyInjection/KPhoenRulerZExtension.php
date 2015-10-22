@@ -43,7 +43,7 @@ class KPhoenRulerZExtension extends Extension
     {
         foreach ($this->supportedExecutors as $executor) {
             if ($config['executors'][$executor]) {
-                $loader-load(sprintf('executors/%s.yml', $executor));
+                $loader->load(sprintf('executors/%s.yml', $executor));
             }
         }
     }
