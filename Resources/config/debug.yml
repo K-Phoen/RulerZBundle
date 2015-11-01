@@ -1,6 +1,6 @@
 services:
     rulerz.compiler:
-        alias: rulerz.compiler.file
+        alias: rulerz.compiler.eval
 
     rulerz.compiler.eval:
         class:  RulerZ\Compiler\EvalCompiler
