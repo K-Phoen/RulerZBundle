@@ -35,6 +35,9 @@ $rulerz = $this->container->get('rulerz');
 $rulerz->filter(/* ... */);
 ```
 
+See [RulerZ's documentation](https://github.com/K-Phoen/rulerz/blob/master/doc/index.md)
+for for information.
+
 ### Custom operators
 
 [Custom operators can be added](https://github.com/K-Phoen/rulerz/blob/master/doc/custom_operators.md)
@@ -57,6 +60,31 @@ In addition to the `rulerz.operator` parameter, two other values are needed:
 **Important**: Operators registered as classes must implement the `__invoke`
 magic method as RulerZ expects custom operators to be defined as callable.
 
+### Validators
+
+A rule validator is provided by the bundle. In its simplest form, it will only
+validate the syntax of a given rule. Unknown variables or operators won't be
+detected unless you define a whitelist of accepted values.
+
+```php
+use Symfony\Component\Validator\Constraints as Assert;
+use KPhoen\RulerZBundle\Validator\Constraints as RulerZAssert;
+
+class TaggingRule
+{
+    /**
+     * @var string
+     *
+     * @Assert\NotBlank()
+     * @RulerZAssert\ValidRule(
+     *  allowed_variables={"title", "url", "isArchived", "isStared", "content", "language", "mimetype", "readingTime", "domainName"},
+     *  allowed_operators={">", "<", ">=", "<=", "=", "is", "!=", "and", "not", "or"}
+     * )
+     */
+    private $rule;
+}
+```
+
 
 Configuration reference
 -----------------------
@@ -67,7 +95,17 @@ Configuration reference
 kphoen_rulerz:
     cache: %kernel.cache_dir%/rulerz
     debug: %kernel.debug%
+
+    executors:
+        doctrine: false
+        eloquent: false
+        pomm: false
+        elastica: false
+        elasticsearch: false
 ```
+
+The `executors` section allows you to enable only the executors needed by your
+application.
 
 Licence
 -------
