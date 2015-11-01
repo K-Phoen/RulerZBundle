@@ -36,7 +36,7 @@ $rulerz->filter(/* ... */);
 ```
 
 See [RulerZ's documentation](https://github.com/K-Phoen/rulerz/blob/master/doc/index.md)
-for for information.
+for more information.
 
 ### Custom operators
 
