@@ -98,6 +98,7 @@ kphoen_rulerz:
 
     executors:
         doctrine: false
+        doctrine_dbal: false
         eloquent: false
         pomm: false
         elastica: false

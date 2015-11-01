@@ -48,6 +48,7 @@ class Configuration implements ConfigurationInterface
                     ->addDefaultsIfNotSet()
                     ->children()
                         ->booleanNode('doctrine')->defaultFalse()->end()
+                        ->booleanNode('doctrine_dbal')->defaultFalse()->end()
                         ->booleanNode('eloquent')->defaultFalse()->end()
                         ->booleanNode('pomm')->defaultFalse()->end()
                         ->booleanNode('elastica')->defaultFalse()->end()
