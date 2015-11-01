@@ -56,6 +56,17 @@ class KPhoenRulerZExtensionTest extends AbstractExtensionTestCase
         $this->assertTrue(is_dir($this->root->url() . '/cache'));
     }
 
+    /**
+     * @expectedException        RuntimeException
+     * @expectedExceptionMessage Could not create cache directory
+     */
+    public function testItThrowsIfTheCacheDirectoryCanNotBeCreated()
+    {
+        $this->root = vfsStream::setup('rulerz_bundle', 0);
+
+        $this->load();
+    }
+
     public function testItLoadsExecutorsDefinedInTheConfig()
     {
         $this->load([
