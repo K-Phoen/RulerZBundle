@@ -3,5 +3,6 @@ services:
         alias: rulerz.compiler.eval
 
     rulerz.compiler.eval:
-        class:  RulerZ\Compiler\EvalCompiler
+        class:      RulerZ\Compiler\EvalCompiler
+        arguments:  [ @rulerz.parser ]
         public: false
