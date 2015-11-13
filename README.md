@@ -50,11 +50,11 @@ services:
     operator.array.like:
         class: RulerZ\Operator\ArrayExecutor\Like
         tags:
-            - { name: rulerz.operator, executor: RulerZ\Executor\ArrayExecutor, operator: like }
+            - { name: rulerz.operator, executor: rulerz.executor.array, operator: like }
 ```
 
 In addition to the `rulerz.operator` parameter, two other values are needed:
-* `executor`: the class we want to register the operator to ;
+* `executor`: the executor service we want to register the operator into ;
 * `operator`: the name that will be given to the operator.
 
 **Important**: Operators registered as classes must implement the `__invoke`

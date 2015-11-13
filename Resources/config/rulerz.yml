@@ -15,9 +15,3 @@ services:
     rulerz.parser:
         class:  RulerZ\Parser\HoaParser
         public: false
-
-    rulerz.executor.array:
-        class:  RulerZ\Compiler\Target\ArrayVisitor
-        public: false
-        tags:
-            - { name: rulerz.executor }

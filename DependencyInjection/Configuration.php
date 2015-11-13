@@ -47,6 +47,7 @@ class Configuration implements ConfigurationInterface
                 ->arrayNode('executors')
                     ->addDefaultsIfNotSet()
                     ->children()
+                        ->booleanNode('array')->defaultTrue()->end()
                         ->booleanNode('doctrine')->defaultFalse()->end()
                         ->booleanNode('doctrine_dbal')->defaultFalse()->end()
                         ->booleanNode('eloquent')->defaultFalse()->end()

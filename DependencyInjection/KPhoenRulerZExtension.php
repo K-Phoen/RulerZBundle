@@ -11,7 +11,7 @@ use Symfony\Component\Config\FileLocator;
 
 class KPhoenRulerZExtension extends Extension
 {
-    private $supportedExecutors = ['doctrine', 'eloquent', 'pomm', 'elastica', 'elasticsearch'];
+    private $supportedExecutors = ['array', 'doctrine', 'eloquent', 'pomm', 'elastica', 'elasticsearch'];
 
     public function load(array $configs, ContainerBuilder $container)
     {
