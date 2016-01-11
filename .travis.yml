@@ -32,6 +32,7 @@ php:
 
 before_install:
     - composer self-update
+    - if [ -n "$GH_TOKEN" ]; then composer config github-oauth.github.com ${GH_TOKEN}; fi;
     # disable xdebug since we don't use code-coverage for now
     - if [[ $TRAVIS_PHP_VERSION != 'hhvm' && $TRAVIS_PHP_VERSION != '7.0' ]]; then phpenv config-rm xdebug.ini; fi
     - if [ "$SYMFONY_VERSION" != "" ]; then composer require "symfony/symfony:${SYMFONY_VERSION}" --no-update; fi;
@@ -40,4 +41,4 @@ install:
     - composer update --prefer-dist --no-interaction $COMPOSER_FLAGS
 
 script:
-    - phpunit
+    - ./vendor/bin/phpunit
