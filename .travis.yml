@@ -9,6 +9,20 @@ cache:
         - vendor
         - $HOME/.composer/cache
 
+matrix:
+    fast_finish: true
+    include:
+        - php: 5.6
+          env: SYMFONY_VERSION=2.5.*
+        - php: 5.6
+          env: SYMFONY_VERSION=2.6.*
+        - php: 5.6
+          env: SYMFONY_VERSION=2.7.*
+        - php: 5.6
+          env: SYMFONY_VERSION=2.8.*
+        - php: 5.6
+          env: SYMFONY_VERSION=3.0.*
+
 php:
     - 5.4
     - 5.5
@@ -16,11 +30,15 @@ php:
     - 7.0
     - hhvm
 
-before_script:
+before_install:
     - composer self-update
+    - if [ -n "$GH_TOKEN" ]; then composer config github-oauth.github.com ${GH_TOKEN}; fi;
     # disable xdebug since we don't use code-coverage for now
     - if [[ $TRAVIS_PHP_VERSION != 'hhvm' && $TRAVIS_PHP_VERSION != '7.0' ]]; then phpenv config-rm xdebug.ini; fi
+    - if [ "$SYMFONY_VERSION" != "" ]; then composer require "symfony/symfony:${SYMFONY_VERSION}" --no-update; fi;
 
-install: composer install --prefer-source
+install:
+    - composer update --prefer-dist --no-interaction $COMPOSER_FLAGS
 
-script: ./vendor/bin/phpunit
+script:
+    - ./vendor/bin/phpunit

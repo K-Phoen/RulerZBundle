@@ -4,5 +4,5 @@ services:
 
     rulerz.compiler.eval:
         class:      RulerZ\Compiler\EvalCompiler
-        arguments:  [ @rulerz.parser ]
+        arguments:  [ "@rulerz.parser" ]
         public: false

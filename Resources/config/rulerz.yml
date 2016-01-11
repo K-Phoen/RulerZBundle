@@ -1,7 +1,7 @@
 services:
     rulerz:
         class:      RulerZ\RulerZ
-        arguments:  [ @rulerz.compiler ]
+        arguments:  [ "@rulerz.compiler" ]
 
     rulerz.compiler:
         alias:  rulerz.compiler.file
@@ -10,7 +10,7 @@ services:
     rulerz.compiler.file:
         class:      RulerZ\Compiler\FileCompiler
         public:     false
-        arguments:  [ @rulerz.parser, %rulerz.cache_directory% ]
+        arguments:  [ "@rulerz.parser", %rulerz.cache_directory% ]
 
     rulerz.parser:
         class:  RulerZ\Parser\HoaParser
