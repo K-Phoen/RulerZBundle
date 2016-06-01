@@ -10,7 +10,7 @@ services:
     rulerz.compiler.file:
         class:      RulerZ\Compiler\FileCompiler
         public:     false
-        arguments:  [ "@rulerz.parser", %rulerz.cache_directory% ]
+        arguments:  [ "@rulerz.parser", "%rulerz.cache_directory%" ]
 
     rulerz.parser:
         class:  RulerZ\Parser\HoaParser
