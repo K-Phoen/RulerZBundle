@@ -1,17 +1,22 @@
 services:
     rulerz:
-        class:      RulerZ\RulerZ
-        arguments:  [ "@rulerz.compiler" ]
+        class: RulerZ\RulerZ
+        arguments: [ "@rulerz.compiler" ]
 
     rulerz.compiler:
-        alias:  rulerz.compiler.file
+        class: RulerZ\Compiler\Compiler
+        arguments: [ "@rulerz.evaluator" ]
         public: false
 
-    rulerz.compiler.file:
-        class:      RulerZ\Compiler\FileCompiler
-        public:     false
-        arguments:  [ "@rulerz.parser", "%rulerz.cache_directory%" ]
+    rulerz.evaluator:
+        alias: rulerz.evaluator.file
+        public: false
+
+    rulerz.evaluator.file:
+        class: RulerZ\Compiler\FileEvaluator
+        public: false
+        arguments:  [ "%rulerz.cache_directory%" ]
 
     rulerz.parser:
-        class:  RulerZ\Parser\HoaParser
+        class: RulerZ\Parser\Parser
         public: false

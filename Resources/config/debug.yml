@@ -1,8 +1,7 @@
 services:
-    rulerz.compiler:
-        alias: rulerz.compiler.eval
+    rulerz.evaluator:
+        alias: rulerz.evaluator.eval
 
-    rulerz.compiler.eval:
-        class:      RulerZ\Compiler\EvalCompiler
-        arguments:  [ "@rulerz.parser" ]
+    rulerz.evaluator.eval:
+        class: RulerZ\Compiler\EvalEvaluator
         public: false

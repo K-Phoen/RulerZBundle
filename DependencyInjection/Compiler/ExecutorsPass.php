@@ -12,7 +12,7 @@ class ExecutorsPass implements CompilerPassInterface
     {
         $engineDefinition = $container->getDefinition('rulerz');
 
-        foreach ($container->findTaggedServiceIds('rulerz.executor') as $id => $attributes) {
+        foreach ($container->findTaggedServiceIds('rulerz.compilation_target') as $id => $attributes) {
             $engineDefinition->addMethodCall('registerCompilationTarget', array(new Reference($id)));
         }
     }

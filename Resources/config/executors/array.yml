@@ -1,6 +1,6 @@
 services:
-    rulerz.executor.array:
-        class:  RulerZ\Compiler\Target\ArrayVisitor
+    rulerz.target.native:
+        class:  RulerZ\Target\Native\Native
         public: false
         tags:
-            - { name: rulerz.executor }
+            - { name: rulerz.compilation_target }
