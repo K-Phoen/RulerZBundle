@@ -15,11 +15,11 @@ class OperatorsPass implements CompilerPassInterface
                 $executor = $container->getDefinition($attributes['executor']);
 
                 if (!empty($attributes['inline']) && $attributes['inline']) {
-                    $executor->addMethodCall('setInlineOperator', [
+                    $executor->addMethodCall('defineInlineOperator', [
                         $attributes['operator'], new Reference($id)
                     ]);
                 } else {
-                    $executor->addMethodCall('setOperator', [
+                    $executor->addMethodCall('defineOperator', [
                         $attributes['operator'], new Reference($id)
                     ]);
                 }
