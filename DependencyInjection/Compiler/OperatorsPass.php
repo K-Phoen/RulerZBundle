@@ -16,11 +16,11 @@ class OperatorsPass implements CompilerPassInterface
 
                 if (!empty($attributes['inline']) && $attributes['inline']) {
                     $executor->addMethodCall('defineInlineOperator', [
-                        $attributes['operator'], new Reference($id)
+                        $attributes['operator'], new Reference($id),
                     ]);
                 } else {
                     $executor->addMethodCall('defineOperator', [
-                        $attributes['operator'], new Reference($id)
+                        $attributes['operator'], new Reference($id),
                     ]);
                 }
             }

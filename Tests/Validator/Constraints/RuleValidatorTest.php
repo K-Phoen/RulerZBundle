@@ -55,7 +55,7 @@ class RuleValidatorTest extends \PHPUnit_Framework_TestCase
 
         $checkVariablesConstraint = new ValidRule([
             'allowed_operators' => null, // all
-            'allowed_variables' => ['foo', 'bar', 'readingTime']
+            'allowed_variables' => ['foo', 'bar', 'readingTime'],
         ]);
 
         return [
@@ -85,7 +85,7 @@ class RuleValidatorTest extends \PHPUnit_Framework_TestCase
 
         $checkVariablesConstraint = new ValidRule([
             'allowed_operators' => null, // all
-            'allowed_variables' => ['foo', 'bar']
+            'allowed_variables' => ['foo', 'bar'],
         ]);
 
         return [
