@@ -29,7 +29,7 @@ class CacheClearCommand extends ContainerAwareCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $cacheDir   = $this->getContainer()->getParameter('rulerz.cache_directory');
+        $cacheDir = $this->getContainer()->getParameter('rulerz.cache_directory');
         $filesystem = $this->getContainer()->get('filesystem');
 
         if (!is_writable($cacheDir)) {

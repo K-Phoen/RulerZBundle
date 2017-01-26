@@ -28,6 +28,7 @@ class RuleValidator extends ConstraintValidator
                 ->buildViolation($constraint->invalidMessage)
                 ->setParameter('%rule%', $rule)
                 ->addViolation();
+
             return;
         }
 
@@ -41,7 +42,7 @@ class RuleValidator extends ConstraintValidator
             return;
         }
 
-        $operators = array_map(function(AST\Operator $element) {
+        $operators = array_map(function (AST\Operator $element) {
             return strtolower($element->getName());
         }, $model->getOperators());
 
@@ -61,7 +62,7 @@ class RuleValidator extends ConstraintValidator
             return;
         }
 
-        $accesses = array_map(function(AST\Bag\Context $element) {
+        $accesses = array_map(function (AST\Bag\Context $element) {
             $flattenedDimensions = [$element->getId()];
             foreach ($element->getDimensions() as $dimension) {
                 $flattenedDimensions[] = $dimension[1];

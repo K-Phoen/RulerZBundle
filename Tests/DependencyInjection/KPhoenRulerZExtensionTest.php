@@ -29,7 +29,7 @@ class KPhoenRulerZExtensionTest extends AbstractExtensionTestCase
     protected function getMinimalConfiguration()
     {
         return [
-            'cache' => $this->root->url() . '/cache',
+            'cache' => $this->root->url().'/cache',
         ];
     }
 
@@ -49,11 +49,11 @@ class KPhoenRulerZExtensionTest extends AbstractExtensionTestCase
 
     public function testItCreatesTheCacheDirectory()
     {
-        $this->assertFalse(is_dir($this->root->url() . '/cache'));
+        $this->assertFalse(is_dir($this->root->url().'/cache'));
 
         $this->load();
 
-        $this->assertTrue(is_dir($this->root->url() . '/cache'));
+        $this->assertTrue(is_dir($this->root->url().'/cache'));
     }
 
     /**
@@ -71,9 +71,9 @@ class KPhoenRulerZExtensionTest extends AbstractExtensionTestCase
     {
         $this->load([
             'executors' => [
-                'pomm'     => null,
+                'pomm' => null,
                 'doctrine' => null,
-            ]
+            ],
         ]);
 
         $this->assertContainerBuilderHasService('rulerz.executor.pomm');
@@ -89,7 +89,7 @@ class KPhoenRulerZExtensionTest extends AbstractExtensionTestCase
         $this->load([
             'executors' => [
                 'unknown' => null,
-            ]
+            ],
         ]);
     }
 }
