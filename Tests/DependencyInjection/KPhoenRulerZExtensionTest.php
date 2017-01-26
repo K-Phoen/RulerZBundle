@@ -57,7 +57,7 @@ class KPhoenRulerZExtensionTest extends AbstractExtensionTestCase
     }
 
     /**
-     * @expectedException        RuntimeException
+     * @expectedException        \RuntimeException
      * @expectedExceptionMessage Could not create cache directory
      */
     public function testItThrowsIfTheCacheDirectoryCanNotBeCreated()
@@ -82,7 +82,7 @@ class KPhoenRulerZExtensionTest extends AbstractExtensionTestCase
     }
 
     /**
-     * @expectedException Symfony\Component\Config\Definition\Exception\InvalidConfigurationException
+     * @expectedException \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException
      */
     public function testUnknownExecutorsCantBeLoaded()
     {

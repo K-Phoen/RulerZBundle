@@ -4,7 +4,7 @@ namespace Tests\Validator\Constraints;
 
 use Symfony\Component\Validator\Constraint;
 
-use RulerZ\Parser\HoaParser;
+use RulerZ\Parser\Parser;
 use KPhoen\RulerZBundle\Validator\Constraints\RuleValidator;
 use KPhoen\RulerZBundle\Validator\Constraints\ValidRule;
 
@@ -18,7 +18,7 @@ class RuleValidatorTest extends \PHPUnit_Framework_TestCase
         $context = $this->getExecutionContextMock();
         $context->expects($this->never())->method('buildViolation');
 
-        $validator = new RuleValidator(new HoaParser());
+        $validator = new RuleValidator(new Parser());
         $validator->initialize($context);
 
         $validator->validate($rule, $constraint);
@@ -35,7 +35,7 @@ class RuleValidatorTest extends \PHPUnit_Framework_TestCase
             ->method('buildViolation')
             ->will($this->returnValue($this->getConstraintViolationBuilderMock()));
 
-        $validator = new RuleValidator(new HoaParser());
+        $validator = new RuleValidator(new Parser());
         $validator->initialize($context);
 
         $validator->validate($rule, $constraint);
