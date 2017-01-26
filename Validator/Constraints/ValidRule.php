@@ -10,8 +10,8 @@ use Symfony\Component\Validator\Exception\MissingOptionsException;
  */
 class ValidRule extends Constraint
 {
-    public $invalidMessage            = 'The rule « %rule% » is invalid.';
-    public $accessNotAllowedMessage   = 'The variable « %access% » does not exist.';
+    public $invalidMessage = 'The rule « %rule% » is invalid.';
+    public $accessNotAllowedMessage = 'The variable « %access% » does not exist.';
     public $operatorNotAllowedMessage = 'The operator « %operator% » does not exist.';
 
     public $allowed_variables;
