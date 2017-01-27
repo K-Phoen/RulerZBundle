@@ -9,7 +9,7 @@ use Symfony\Component\Config\FileLocator;
 
 class KPhoenRulerZExtension extends Extension
 {
-    private $supportedExecutors = ['array', 'doctrine', 'eloquent', 'pomm', 'elastica', 'elasticsearch'];
+    private $supportedTargets = ['native', 'doctrine', 'eloquent', 'pomm', 'elastica', 'elasticsearch'];
 
     public function load(array $configs, ContainerBuilder $container)
     {
@@ -24,7 +24,7 @@ class KPhoenRulerZExtension extends Extension
         }
 
         $this->configureCache($container, $config);
-        $this->configureExecutors($loader, $config);
+        $this->configureTargets($loader, $config);
     }
 
     private function configureCache(ContainerBuilder $container, array $config)
@@ -37,11 +37,11 @@ class KPhoenRulerZExtension extends Extension
         }
     }
 
-    private function configureExecutors(YamlFileLoader $loader, array $config)
+    private function configureTargets(YamlFileLoader $loader, array $config)
     {
-        foreach ($this->supportedExecutors as $executor) {
-            if ($config['executors'][$executor]) {
-                $loader->load(sprintf('executors/%s.yml', $executor));
+        foreach ($this->supportedTargets as $target) {
+            if ($config['targets'][$target]) {
+                $loader->load(sprintf('targets/%s.yml', $target));
             }
         }
     }

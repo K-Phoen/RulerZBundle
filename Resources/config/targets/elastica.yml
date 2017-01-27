@@ -1,6 +1,6 @@
 services:
-    rulerz.target.native:
-        class:  RulerZ\Target\Native\Native
+    rulerz.compilation_target.elastica:
+        class:  RulerZ\Target\Elasticsa\Elastica
         public: false
         tags:
             - { name: rulerz.compilation_target }

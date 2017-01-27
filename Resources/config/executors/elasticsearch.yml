@@ -1,6 +1,0 @@
-services:
-    rulerz.executor.elasticsearch:
-        class:  RulerZ\Compiler\Target\Elasticsearch\ElasticsearchVisitor
-        public: false
-        tags:
-            - { name: rulerz.executor }

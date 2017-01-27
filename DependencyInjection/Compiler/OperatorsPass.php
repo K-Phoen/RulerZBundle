@@ -12,7 +12,7 @@ class OperatorsPass implements CompilerPassInterface
     {
         foreach ($container->findTaggedServiceIds('rulerz.operator') as $id => $attributesSet) {
             foreach ($attributesSet as $attributes) {
-                $executor = $container->getDefinition($attributes['executor']);
+                $executor = $container->getDefinition($attributes['compilation_target']);
 
                 if (!empty($attributes['inline']) && $attributes['inline']) {
                     $executor->addMethodCall('defineInlineOperator', [

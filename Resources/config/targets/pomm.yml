@@ -1,0 +1,6 @@
+services:
+    rulerz.compilation_target.pomm:
+        class:  RulerZ\Target\Pomm\Pomm
+        public: false
+        tags:
+            - { name: rulerz.compilation_target }

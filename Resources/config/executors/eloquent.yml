@@ -1,6 +1,0 @@
-services:
-    rulerz.executor.eloquent:
-        class:  RulerZ\Compiler\Target\Sql\EloquentVisitor
-        public: false
-        tags:
-            - { name: rulerz.executor }

@@ -5,8 +5,7 @@ namespace KPhoen\RulerZBundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-use KPhoen\RulerZBundle\DependencyInjection\Compiler\ExecutorsPass;
-use KPhoen\RulerZBundle\DependencyInjection\Compiler\OperatorsPass;
+use KPhoen\RulerZBundle\DependencyInjection\Compiler;
 
 class KPhoenRulerZBundle extends Bundle
 {
@@ -14,8 +13,8 @@ class KPhoenRulerZBundle extends Bundle
     {
         parent::build($container);
 
-        $container->addCompilerPass(new ExecutorsPass());
-        $container->addCompilerPass(new OperatorsPass());
+        $container->addCompilerPass(new Compiler\TargetsPass());
+        $container->addCompilerPass(new Compiler\OperatorsPass());
     }
 
     /**

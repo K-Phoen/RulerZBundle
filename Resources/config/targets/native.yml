@@ -1,6 +1,6 @@
 services:
-    rulerz.executor.doctrine:
-        class:  RulerZ\Target\DoctrineORM\DoctrineORM
+    rulerz.compilation_target.native:
+        class:  RulerZ\Target\Native\Native
         public: false
         tags:
             - { name: rulerz.compilation_target }

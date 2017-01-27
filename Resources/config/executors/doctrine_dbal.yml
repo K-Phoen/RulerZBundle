@@ -1,6 +1,0 @@
-services:
-    rulerz.executor.doctrine_dbal:
-        class:  RulerZ\Compiler\Target\Sql\DoctrineDBALVisitor
-        public: false
-        tags:
-            - { name: rulerz.executor }

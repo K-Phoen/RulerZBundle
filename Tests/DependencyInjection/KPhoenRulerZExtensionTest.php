@@ -67,27 +67,27 @@ class KPhoenRulerZExtensionTest extends AbstractExtensionTestCase
         $this->load();
     }
 
-    public function testItLoadsExecutorsDefinedInTheConfig()
+    public function testItLoadsTargetsDefinedInTheConfig()
     {
         $this->load([
-            'executors' => [
+            'targets' => [
                 'pomm' => null,
                 'doctrine' => null,
             ],
         ]);
 
-        $this->assertContainerBuilderHasService('rulerz.executor.pomm');
-        $this->assertContainerBuilderHasService('rulerz.executor.doctrine');
-        $this->assertContainerBuilderNotHasService('rulerz.executor.elastica');
+        $this->assertContainerBuilderHasService('rulerz.compilation_target.pomm');
+        $this->assertContainerBuilderHasService('rulerz.compilation_target.doctrine');
+        $this->assertContainerBuilderNotHasService('rulerz.compilation_target.elastica');
     }
 
     /**
      * @expectedException \Symfony\Component\Config\Definition\Exception\InvalidConfigurationException
      */
-    public function testUnknownExecutorsCantBeLoaded()
+    public function testUnknownTargetsCantBeLoaded()
     {
         $this->load([
-            'executors' => [
+            'targets' => [
                 'unknown' => null,
             ],
         ]);

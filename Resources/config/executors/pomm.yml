@@ -1,6 +1,0 @@
-services:
-    rulerz.executor.pomm:
-        class:  RulerZ\Compiler\Target\Sql\PommVisitor
-        public: false
-        tags:
-            - { name: rulerz.executor }

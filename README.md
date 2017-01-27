@@ -50,12 +50,12 @@ services:
     operator.array.like:
         class: RulerZ\Operator\ArrayExecutor\Like
         tags:
-            - { name: rulerz.operator, executor: rulerz.executor.array, operator: like }
+            - { name: rulerz.operator, compilation_target: rulerz.compilation_target.native, operator: like }
 ```
 
-In addition to the `rulerz.operator` parameter, two other values are needed:
-* `executor`: the executor service we want to register the operator into ;
-* `operator`: the name that will be given to the operator.
+In addition to the `rulerz.operator` tag, two other values are needed:
+* `compilation_target`: the compilation target we want to register the operator for ;
+* `operator`: the name that will be given to the operator in rules.
 
 **Important**: Operators registered as classes must implement the `__invoke`
 magic method as RulerZ expects custom operators to be defined as callable.
@@ -96,7 +96,8 @@ kphoen_rulerz:
     cache: %kernel.cache_dir%/rulerz
     debug: %kernel.debug%
 
-    executors:
+    targets:
+        native: false
         doctrine: false
         doctrine_dbal: false
         eloquent: false
@@ -105,8 +106,8 @@ kphoen_rulerz:
         elasticsearch: false
 ```
 
-The `executors` section allows you to enable only the executors needed by your
-application.
+The `targets` section allows you to enable only the compilation targets needed
+by your application.
 
 Licence
 -------

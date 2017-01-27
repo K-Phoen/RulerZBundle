@@ -15,7 +15,7 @@ class Configuration implements ConfigurationInterface
 
         $this->addCacheConfig($rootNode);
         $this->addDebugConfig($rootNode);
-        $this->addExecutorsConfig($rootNode);
+        $this->addTargetsConfig($rootNode);
 
         return $treeBuilder;
     }
@@ -40,14 +40,14 @@ class Configuration implements ConfigurationInterface
         return $rootNode;
     }
 
-    private function addExecutorsConfig(ArrayNodeDefinition $rootNode)
+    private function addTargetsConfig(ArrayNodeDefinition $rootNode)
     {
         $rootNode
             ->children()
-                ->arrayNode('executors')
+                ->arrayNode('targets')
                     ->addDefaultsIfNotSet()
                     ->children()
-                        ->booleanNode('array')->defaultTrue()->end()
+                        ->booleanNode('native')->defaultTrue()->end()
                         ->booleanNode('doctrine')->defaultFalse()->end()
                         ->booleanNode('doctrine_dbal')->defaultFalse()->end()
                         ->booleanNode('eloquent')->defaultFalse()->end()
