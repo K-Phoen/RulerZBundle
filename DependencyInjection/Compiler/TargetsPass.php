@@ -12,8 +12,8 @@ class TargetsPass implements CompilerPassInterface
     {
         $engineDefinition = $container->getDefinition('rulerz');
 
-        foreach ($container->findTaggedServiceIds('rulerz.compilation_target') as $id => $attributes) {
-            $engineDefinition->addMethodCall('registerCompilationTarget', array(new Reference($id)));
+        foreach ($container->findTaggedServiceIds('rulerz.target') as $id => $attributes) {
+            $engineDefinition->addMethodCall('registerCompilationTarget', [new Reference($id)]);
         }
     }
 }

@@ -50,7 +50,7 @@ services:
     operator.array.like:
         class: RulerZ\Operator\ArrayExecutor\Like
         tags:
-            - { name: rulerz.operator, compilation_target: rulerz.compilation_target.native, operator: like }
+            - { name: rulerz.operator, compilation_target: rulerz.target.native, operator: like }
 ```
 
 In addition to the `rulerz.operator` tag, two other values are needed:
