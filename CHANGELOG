@@ -1,0 +1,20 @@
+
+VERSION 0  CHANGE OPERATORS DEFINITION, ACCORDING TO COMPILATION TARGETS REFINEMENTS DONE IN RULERZ
+===================================================================================================
+
+   Version 0.13 - Change operators definition, according to compilation targets refinements done in RulerZ
+      05/02/2017 16:55  0.13.0  initial release
+         71aa493 Simplify operator definition
+         ec1652c Rename rulerz.compilation_target tag to rulerz.target
+         4183ef2 Add editorconfig
+         a40f373 Rename executors to targets
+         dfd598c Add RMT config
+         12d1452 Merge pull request #11 from K-Phoen/analysis-z3Wjbp
+         5b76b6b Apply fixes from StyleCI
+         d513936 Test against PHP 7.0 in priority
+         c15e672 Add styleci config
+         7cf1835 Use the right parser in tests
+         3cfc720 Require rulerz >= 0.19.3
+         9d4f88e Merge pull request #8 from jdeniau/master
+         28c0135 setOperator => defineOperator
+         3d07954 Start to update the bundle for the future rulerz release
