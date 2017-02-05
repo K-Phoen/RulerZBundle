@@ -12,14 +12,20 @@ class OperatorsPass implements CompilerPassInterface
     {
         foreach ($container->findTaggedServiceIds('rulerz.operator') as $id => $attributesSet) {
             foreach ($attributesSet as $attributes) {
-                $executor = $container->getDefinition($attributes['compilation_target']);
+                if ($container->hasDefinition($target = 'rulerz.target.'.$attributes['target'])) {
+                    $targetDefinition = $container->getDefinition($target);
+                } elseif ($container->hasDefinition($attributes['target'])) {
+                    $targetDefinition = $container->getDefinition($attributes['target']);
+                } else {
+                    throw new \LogicException('Unable to find service definition for compilation target: '.$attributes['compilation_target']);
+                }
 
                 if (!empty($attributes['inline']) && $attributes['inline']) {
-                    $executor->addMethodCall('defineInlineOperator', [
+                    $targetDefinition->addMethodCall('defineInlineOperator', [
                         $attributes['operator'], new Reference($id),
                     ]);
                 } else {
-                    $executor->addMethodCall('defineOperator', [
+                    $targetDefinition->addMethodCall('defineOperator', [
                         $attributes['operator'], new Reference($id),
                     ]);
                 }

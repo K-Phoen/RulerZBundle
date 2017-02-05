@@ -6,6 +6,8 @@ use Matthias\SymfonyDependencyInjectionTest\PhpUnit\AbstractExtensionTestCase;
 use org\bovigo\vfs\vfsStream;
 
 use KPhoen\RulerZBundle\DependencyInjection\KPhoenRulerZExtension;
+use KPhoen\RulerZBundle\Validator\Constraints\RuleValidator;
+use RulerZ\RulerZ;
 
 class KPhoenRulerZExtensionTest extends AbstractExtensionTestCase
 {
@@ -37,14 +39,14 @@ class KPhoenRulerZExtensionTest extends AbstractExtensionTestCase
     {
         $this->load();
 
-        $this->assertContainerBuilderHasService('rulerz', 'RulerZ\RulerZ');
+        $this->assertContainerBuilderHasService('rulerz', RulerZ::class);
     }
 
     public function testItLoadsValidators()
     {
         $this->load();
 
-        $this->assertContainerBuilderHasService('rulerz.validator.unique.rule_validator', 'KPhoen\RulerZBundle\Validator\Constraints\RuleValidator');
+        $this->assertContainerBuilderHasService('rulerz.validator.unique.rule_validator', RuleValidator::class);
     }
 
     public function testItCreatesTheCacheDirectory()
@@ -76,9 +78,9 @@ class KPhoenRulerZExtensionTest extends AbstractExtensionTestCase
             ],
         ]);
 
-        $this->assertContainerBuilderHasService('rulerz.compilation_target.pomm');
-        $this->assertContainerBuilderHasService('rulerz.compilation_target.doctrine');
-        $this->assertContainerBuilderNotHasService('rulerz.compilation_target.elastica');
+        $this->assertContainerBuilderHasService('rulerz.target.pomm');
+        $this->assertContainerBuilderHasService('rulerz.target.doctrine');
+        $this->assertContainerBuilderNotHasService('rulerz.target.elastica');
     }
 
     /**

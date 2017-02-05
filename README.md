@@ -50,11 +50,11 @@ services:
     operator.array.like:
         class: RulerZ\Operator\ArrayExecutor\Like
         tags:
-            - { name: rulerz.operator, compilation_target: rulerz.target.native, operator: like }
+            - { name: rulerz.operator, target: native, operator: like }
 ```
 
 In addition to the `rulerz.operator` tag, two other values are needed:
-* `compilation_target`: the compilation target we want to register the operator for ;
+* `target`: the compilation target we want to register the operator for ;
 * `operator`: the name that will be given to the operator in rules.
 
 **Important**: Operators registered as classes must implement the `__invoke`
