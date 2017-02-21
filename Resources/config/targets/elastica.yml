@@ -1,6 +1,6 @@
 services:
     rulerz.target.elastica:
-        class:  RulerZ\Target\Elasticsa\Elastica
+        class:  RulerZ\Target\Elastica\Elastica
         public: false
         tags:
             - { name: rulerz.target }
