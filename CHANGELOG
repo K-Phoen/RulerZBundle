@@ -3,6 +3,9 @@ VERSION 0  CHANGE OPERATORS DEFINITION, ACCORDING TO COMPILATION TARGETS REFINEM
 ===================================================================================================
 
    Version 0.13 - Change operators definition, according to compilation targets refinements done in RulerZ
+      21/02/2017 11:04  0.13.1  Fix elastica target service definition
+         b34f719 Merge pull request #12 from nextima/master
+         925bad3 Update elastica.yml
       05/02/2017 16:55  0.13.0  initial release
          71aa493 Simplify operator definition
          ec1652c Rename rulerz.compilation_target tag to rulerz.target
