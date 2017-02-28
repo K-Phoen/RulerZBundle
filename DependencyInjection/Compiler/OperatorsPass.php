@@ -17,7 +17,7 @@ class OperatorsPass implements CompilerPassInterface
                 } elseif ($container->hasDefinition($attributes['target'])) {
                     $targetDefinition = $container->getDefinition($attributes['target']);
                 } else {
-                    throw new \LogicException('Unable to find service definition for compilation target: '.$attributes['compilation_target']);
+                    throw new \LogicException('Unable to find service definition for compilation target: '.$attributes['target']);
                 }
 
                 if (!empty($attributes['inline']) && $attributes['inline']) {
