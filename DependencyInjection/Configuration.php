@@ -34,7 +34,7 @@ class Configuration implements ConfigurationInterface
     {
         $rootNode
             ->children()
-                ->booleanNode('debug')->defaultValue('%kernel.debug%')->end()
+                ->booleanNode('debug')->defaultNull()->end()
             ->end();
 
         return $rootNode;

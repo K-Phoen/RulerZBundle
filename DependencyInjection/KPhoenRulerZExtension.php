@@ -19,6 +19,11 @@ class KPhoenRulerZExtension extends Extension
         $loader->load('rulerz.yml');
         $loader->load('validators.yml');
 
+        if (!is_bool($config['debug'])) {
+            $parameterBag = $container->getParameterBag();
+            $config['debug'] = $parameterBag->has('kernel.debug') ? $parameterBag->get('kernel.debug') : true;
+        }
+
         if ($config['debug']) {
             $loader->load('debug.yml');
         }
