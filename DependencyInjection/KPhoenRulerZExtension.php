@@ -17,6 +17,7 @@ class KPhoenRulerZExtension extends Extension
 
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('rulerz.yml');
+        $loader->load('forms.yml');
         $loader->load('validators.yml');
 
         if ($config['debug']) {
