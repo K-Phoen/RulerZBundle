@@ -46,6 +46,11 @@ class KPhoenRulerZExtension extends Extension
         }
     }
 
+    public function getConfiguration(array $config, ContainerBuilder $container)
+    {
+        return new Configuration($container->getParameter('kernel.debug'));
+    }
+
     /**
      * {@inheritdoc}
      */

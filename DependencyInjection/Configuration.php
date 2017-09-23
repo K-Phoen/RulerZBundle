@@ -8,6 +8,13 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
 
 class Configuration implements ConfigurationInterface
 {
+    private $debug;
+
+    public function  __construct($debug)
+    {
+        $this->debug = (bool) $debug;
+    }
+
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
@@ -34,7 +41,7 @@ class Configuration implements ConfigurationInterface
     {
         $rootNode
             ->children()
-                ->booleanNode('debug')->defaultValue('%kernel.debug%')->end()
+                ->booleanNode('debug')->defaultValue($this->debug)->end()
             ->end();
 
         return $rootNode;
