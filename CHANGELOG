@@ -3,6 +3,12 @@ VERSION 0  CHANGE OPERATORS DEFINITION, ACCORDING TO COMPILATION TARGETS REFINEM
 ===================================================================================================
 
    Version 0.13 - Change operators definition, according to compilation targets refinements done in RulerZ
+      23/09/2017 15:58  0.13.2  Fix debug configuration parsing
+         6d419b2 Fix tests
+         70551d6 Do not test against hhvm anymore
+         3e626ef Fix default value definition for the debug configuration option
+         12eab8b Merge pull request #13 from iainmckay/bug/reference-to-compilation-target
+         74a0d7f Fixed reference to compilation_target
       21/02/2017 11:04  0.13.1  Fix elastica target service definition
          b34f719 Merge pull request #12 from nextima/master
          925bad3 Update elastica.yml
