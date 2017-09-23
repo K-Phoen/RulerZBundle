@@ -21,6 +21,7 @@ class KPhoenRulerZExtensionTest extends AbstractExtensionTestCase
         parent::setUp();
 
         $this->root = vfsStream::setup('rulerz_bundle');
+        $this->setParameter('kernel.debug', true);
     }
 
     protected function getContainerExtensions()
