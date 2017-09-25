@@ -112,7 +112,7 @@ class RuleValidatorTest extends \PHPUnit_Framework_TestCase
 
     private function getConstraintViolationBuilderMock()
     {
-        $builder = $this->getMock('Symfony\Component\Validator\Violation\ConstraintViolationBuilderInterface');
+        $builder = $this->createMock('Symfony\Component\Validator\Violation\ConstraintViolationBuilderInterface');
 
         $builder->expects($this->any())
             ->method('setParameter')
