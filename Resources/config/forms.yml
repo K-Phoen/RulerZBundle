@@ -1,0 +1,6 @@
+services:
+    rulerz.form.type_extension:
+        class: Symfony\Bridge\RulerZ\Form\SpecTypeExtension
+        tags:
+            - { name: form.type_extension, extended_type: Symfony\Component\Form\Extension\Core\Type\FormType }
+

@@ -7,6 +7,8 @@ use Symfony\Component\Validator\Constraint;
 use RulerZ\Parser\Parser;
 use KPhoen\RulerZBundle\Validator\Constraints\RuleValidator;
 use KPhoen\RulerZBundle\Validator\Constraints\ValidRule;
+use Symfony\Component\Validator\Context\ExecutionContextInterface;
+use Symfony\Component\Validator\Violation\ConstraintViolationBuilderInterface;
 
 class RuleValidatorTest extends \PHPUnit_Framework_TestCase
 {
@@ -105,14 +107,12 @@ class RuleValidatorTest extends \PHPUnit_Framework_TestCase
 
     private function getExecutionContextMock()
     {
-        return $this->getMockBuilder('Symfony\Component\Validator\Context\ExecutionContext')
-            ->disableOriginalConstructor()
-            ->getMock();
+        return $this->createMock(ExecutionContextInterface::class);
     }
 
     private function getConstraintViolationBuilderMock()
     {
-        $builder = $this->getMock('Symfony\Component\Validator\Violation\ConstraintViolationBuilderInterface');
+        $builder = $this->createMock(ConstraintViolationBuilderInterface::class);
 
         $builder->expects($this->any())
             ->method('setParameter')

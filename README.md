@@ -93,8 +93,8 @@ Configuration reference
 # app/config/config.yml
 
 kphoen_rulerz:
-    cache: %kernel.cache_dir%/rulerz
-    debug: %kernel.debug%
+    cache: "%kernel.cache_dir%/rulerz"
+    debug: "%kernel.debug%"
 
     targets:
         native: false
