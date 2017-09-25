@@ -2,6 +2,21 @@
 VERSION 0  CHANGE OPERATORS DEFINITION, ACCORDING TO COMPILATION TARGETS REFINEMENTS DONE IN RULERZ
 ===================================================================================================
 
+   Version 0.14 - Use the bridge
+      25/09/2017 20:58  0.14.0  initial release
+         675a43d Merge pull request #15 from K-Phoen/bridge
+         de15037 Simplify some tests
+         f71bb04 Update tests setup
+         2e225dd Require kphoen/rulerz-bridge ^1.0
+         6034486 Fix a little style violation
+         88957e8 Removed unused 'use' statements
+         78f84c7 Write quotes around parameters in the readme
+         50ff396 Update travis config
+         3bc007c Require at least symfony 2.8
+         697c3e9 Use the validator components from the bridge
+         17cd987 Automatically enable the form extension
+         6077920 Also require rulerz-bridge
+
    Version 0.13 - Change operators definition, according to compilation targets refinements done in RulerZ
       23/09/2017 15:58  0.13.2  Fix debug configuration parsing
          6d419b2 Fix tests
