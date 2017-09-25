@@ -16,7 +16,7 @@
     },
     "require": {
         "kphoen/rulerz": "~0.17,>=0.19.3",
-        "kphoen/rulerz-bridge": "*",
+        "kphoen/rulerz-bridge": "^1.0",
         "symfony/validator": "^2.8|^3.0",
         "symfony/framework-bundle": "^2.8|^3.0"
     },
