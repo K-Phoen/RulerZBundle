@@ -10,7 +10,7 @@ class Configuration implements ConfigurationInterface
 {
     private $debug;
 
-    public function  __construct($debug)
+    public function __construct($debug)
     {
         $this->debug = (bool) $debug;
     }
