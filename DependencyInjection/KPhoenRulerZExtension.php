@@ -9,7 +9,7 @@ use Symfony\Component\Config\FileLocator;
 
 class KPhoenRulerZExtension extends Extension
 {
-    private $supportedTargets = ['native', 'doctrine', 'eloquent', 'pomm', 'elastica', 'elasticsearch'];
+    private $supportedTargets = ['native', 'doctrine', 'doctrine_dbal', 'eloquent', 'pomm', 'elastica', 'elasticsearch'];
 
     public function load(array $configs, ContainerBuilder $container)
     {
