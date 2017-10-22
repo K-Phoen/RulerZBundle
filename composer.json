@@ -24,6 +24,7 @@
         "phpunit/phpunit": "^5.0",
         "symfony/phpunit-bridge": "^2.7|^3.0",
         "mikey179/vfsStream": "~1.0",
-        "matthiasnoback/symfony-dependency-injection-test": "~0.7"
+        "matthiasnoback/symfony-dependency-injection-test": "~0.7",
+        "liip/rmt": "^1.2"
     }
 }
