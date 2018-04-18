@@ -12,21 +12,16 @@ cache:
 matrix:
     fast_finish: true
     include:
-        - php: 7.0
-          env: SYMFONY_VERSION=2.8.*
-        - php: 7.0
-          env: SYMFONY_VERSION=3.0.*
-        - php: 7.0
-          env: SYMFONY_VERSION=3.1.*
+        - php: 7.1
+          env: SYMFONY_VERSION=3.4.* COMPOSER_FLAGS='--prefer-lowest'
+        - env: SYMFONY_VERSION=4.0.*
 
 php:
-    - 5.6
-    - 7.0
-    - 7.1
+    - 7.2
 
 before_install:
     # disable xdebug since we don't use code-coverage for now
-    - if [[ $TRAVIS_PHP_VERSION != '7.0' ]]; then phpenv config-rm xdebug.ini; fi
+    - phpenv config-rm xdebug.ini
     - if [ "$SYMFONY_VERSION" != "" ]; then composer require "symfony/symfony:${SYMFONY_VERSION}" --no-update; fi;
 
 install:

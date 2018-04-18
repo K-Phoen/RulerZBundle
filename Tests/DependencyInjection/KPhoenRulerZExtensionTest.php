@@ -6,7 +6,7 @@ use Matthias\SymfonyDependencyInjectionTest\PhpUnit\AbstractExtensionTestCase;
 use org\bovigo\vfs\vfsStream;
 
 use KPhoen\RulerZBundle\DependencyInjection\KPhoenRulerZExtension;
-use KPhoen\RulerZBundle\Validator\Constraints\RuleValidator;
+use Symfony\Bridge\RulerZ\Validator\Constraints\RuleValidator;
 use RulerZ\RulerZ;
 
 class KPhoenRulerZExtensionTest extends AbstractExtensionTestCase

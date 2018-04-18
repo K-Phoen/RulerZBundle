@@ -68,7 +68,7 @@ detected unless you define a whitelist of accepted values.
 
 ```php
 use Symfony\Component\Validator\Constraints as Assert;
-use KPhoen\RulerZBundle\Validator\Constraints as RulerZAssert;
+use Symfony\Bridge\RulerZ\Validator\Constraints as RulerZAssert;
 
 class TaggingRule
 {

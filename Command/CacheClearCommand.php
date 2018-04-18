@@ -20,7 +20,7 @@ class CacheClearCommand extends ContainerAwareCommand
     {
         $this
             ->setName('rulerz:cache:clear')
-            ->setDescription('Clear the cache')
+            ->setDescription("Clear RulerZ's cache")
         ;
     }
 
