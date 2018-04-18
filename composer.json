@@ -17,8 +17,8 @@
     "require": {
         "kphoen/rulerz": "~0.17,>=0.19.3",
         "kphoen/rulerz-bridge": "^1.0",
-        "symfony/validator": "^2.8|^3.0",
-        "symfony/framework-bundle": "^2.8|^3.0"
+        "symfony/validator": "^2.8|^3.0|^4.0",
+        "symfony/framework-bundle": "^2.8|^3.0|^4.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^5.0",
