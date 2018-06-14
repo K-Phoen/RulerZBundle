@@ -20,3 +20,8 @@ services:
     rulerz.parser:
         class: RulerZ\Parser\Parser
         public: false
+
+    KPhoen\RulerZBundle\Command\CacheClearCommand:
+        public: true
+        tags:
+            - { 'name': 'console.command' }
