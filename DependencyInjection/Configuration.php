@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace KPhoen\RulerZBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
@@ -10,9 +12,9 @@ class Configuration implements ConfigurationInterface
 {
     private $debug;
 
-    public function __construct($debug)
+    public function __construct(bool $debug)
     {
-        $this->debug = (bool) $debug;
+        $this->debug = $debug;
     }
 
     public function getConfigTreeBuilder()
@@ -27,7 +29,7 @@ class Configuration implements ConfigurationInterface
         return $treeBuilder;
     }
 
-    private function addCacheConfig(ArrayNodeDefinition $rootNode)
+    private function addCacheConfig(ArrayNodeDefinition $rootNode): ArrayNodeDefinition
     {
         $rootNode
             ->children()
@@ -37,7 +39,7 @@ class Configuration implements ConfigurationInterface
         return $rootNode;
     }
 
-    private function addDebugConfig(ArrayNodeDefinition $rootNode)
+    private function addDebugConfig(ArrayNodeDefinition $rootNode): ArrayNodeDefinition
     {
         $rootNode
             ->children()
@@ -47,7 +49,7 @@ class Configuration implements ConfigurationInterface
         return $rootNode;
     }
 
-    private function addTargetsConfig(ArrayNodeDefinition $rootNode)
+    private function addTargetsConfig(ArrayNodeDefinition $rootNode): ArrayNodeDefinition
     {
         $rootNode
             ->children()

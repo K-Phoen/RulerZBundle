@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace KPhoen\RulerZBundle\Command;
 
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;

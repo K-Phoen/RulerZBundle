@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace KPhoen\RulerZBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -28,7 +30,7 @@ class KPhoenRulerZExtension extends Extension
         $this->configureTargets($loader, $config);
     }
 
-    private function configureCache(ContainerBuilder $container, array $config)
+    private function configureCache(ContainerBuilder $container, array $config): void
     {
         $directory = $container->getParameterBag()->resolveValue($config['cache']);
         $container->setParameter('rulerz.cache_directory', $directory);
@@ -38,7 +40,7 @@ class KPhoenRulerZExtension extends Extension
         }
     }
 
-    private function configureTargets(YamlFileLoader $loader, array $config)
+    private function configureTargets(YamlFileLoader $loader, array $config): void
     {
         foreach ($this->supportedTargets as $target) {
             if ($config['targets'][$target]) {
@@ -47,7 +49,7 @@ class KPhoenRulerZExtension extends Extension
         }
     }
 
-    public function getConfiguration(array $config, ContainerBuilder $container)
+    public function getConfiguration(array $config, ContainerBuilder $container): Configuration
     {
         return new Configuration($container->getParameter('kernel.debug'));
     }
@@ -55,7 +57,7 @@ class KPhoenRulerZExtension extends Extension
     /**
      * {@inheritdoc}
      */
-    public function getAlias()
+    public function getAlias(): string
     {
         return 'kphoen_rulerz';
     }
