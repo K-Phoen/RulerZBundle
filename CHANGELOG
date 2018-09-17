@@ -2,6 +2,16 @@
 VERSION 0  CHANGE OPERATORS DEFINITION, ACCORDING TO COMPILATION TARGETS REFINEMENTS DONE IN RULERZ
 ===================================================================================================
 
+   Version 0.15 - Add support for SF 4 and require PHP >= 7.1
+      17/09/2018 11:02  0.15.0  initial release
+         85ca063 Remove useless config element from phpunit.xml.dist
+         8336db1 Fix version constraint on mikey179/vfsStream
+         012ddc7 Add a few declare() and typehints
+         0eeedf5 Explicitely declare the cache clear command
+         b033819 Drop symfony 2.8 support and require PHP >= 7.1
+         2746094 Merge pull request #18 from marclenderink/sf4-compatibility
+         74bf6e9 Modified dependencies to allow SF4 components
+
    Version 0.14 - Use the bridge
       22/10/2017 16:37  0.14.1  Restore support for doctrine_dbal
          5802ec2 Add a "release" target in the makefile
