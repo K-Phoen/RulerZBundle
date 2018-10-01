@@ -1,6 +1,6 @@
 services:
     rulerz.target.eloquent:
-        class:  RulerZ\Target\Eloquent\Eloquent
+        class:  RulerZ\Eloquent\Target\Eloquent
         public: false
         tags:
             - { name: rulerz.target }

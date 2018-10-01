@@ -1,6 +1,6 @@
 services:
     rulerz.target.pomm:
-        class:  RulerZ\Target\Pomm\Pomm
+        class:  RulerZ\Pomm\Target\Pomm
         public: false
         tags:
             - { name: rulerz.target }

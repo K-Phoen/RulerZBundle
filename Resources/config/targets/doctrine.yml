@@ -1,6 +1,6 @@
 services:
     rulerz.target.doctrine:
-        class:  RulerZ\Target\DoctrineORM\DoctrineORM
+        class:  RulerZ\DoctrineORM\Target\DoctrineORM
         public: false
         tags:
             - { name: rulerz.target }

@@ -11,7 +11,15 @@ use Symfony\Component\Config\FileLocator;
 
 class KPhoenRulerZExtension extends Extension
 {
-    private $supportedTargets = ['native', 'doctrine', 'doctrine_dbal', 'eloquent', 'pomm', 'elastica', 'elasticsearch'];
+    public const SUPPORTED_TARGETS = [
+        'native' => true, // enabled by default
+        'doctrine' => false,
+        'doctrine_dbal' => false,
+        'eloquent' => false,
+        'pomm' => false,
+        'solarium' => false,
+        'elasticsearch' => false,
+    ];
 
     public function load(array $configs, ContainerBuilder $container)
     {
@@ -42,7 +50,7 @@ class KPhoenRulerZExtension extends Extension
 
     private function configureTargets(YamlFileLoader $loader, array $config): void
     {
-        foreach ($this->supportedTargets as $target) {
+        foreach (array_keys(self::SUPPORTED_TARGETS) as $target) {
             if ($config['targets'][$target]) {
                 $loader->load(sprintf('targets/%s.yml', $target));
             }
@@ -59,6 +67,6 @@ class KPhoenRulerZExtension extends Extension
      */
     public function getAlias(): string
     {
-        return 'kphoen_rulerz';
+        return 'rulerz';
     }
 }

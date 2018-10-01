@@ -51,18 +51,17 @@ class Configuration implements ConfigurationInterface
 
     private function addTargetsConfig(ArrayNodeDefinition $rootNode): ArrayNodeDefinition
     {
-        $rootNode
+        $targetsNode = $rootNode
             ->children()
                 ->arrayNode('targets')
                     ->addDefaultsIfNotSet()
-                    ->children()
-                        ->booleanNode('native')->defaultTrue()->end()
-                        ->booleanNode('doctrine')->defaultFalse()->end()
-                        ->booleanNode('doctrine_dbal')->defaultFalse()->end()
-                        ->booleanNode('eloquent')->defaultFalse()->end()
-                        ->booleanNode('pomm')->defaultFalse()->end()
-                        ->booleanNode('elastica')->defaultFalse()->end()
-                        ->booleanNode('elasticsearch')->defaultFalse()->end()
+                    ->children();
+
+        foreach (KPhoenRulerZExtension::SUPPORTED_TARGETS as $target => $defaultState) {
+            $targetsNode = $targetsNode->booleanNode($target)->defaultValue($defaultState)->end();
+        }
+
+        $targetsNode
                     ->end()
                 ->end()
             ->end();

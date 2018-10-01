@@ -15,6 +15,12 @@ class TargetsPass implements CompilerPassInterface
         $engineDefinition = $container->getDefinition('rulerz');
 
         foreach ($container->findTaggedServiceIds('rulerz.target') as $id => $attributes) {
+            $targetDefinition = $container->getDefinition($id);
+
+            if (!class_exists($targetDefinition->getClass())) {
+                throw new \RuntimeException(sprintf('Class not found for target "%s". Did you require the target\'s library?', $id));
+            }
+
             $engineDefinition->addMethodCall('registerCompilationTarget', [new Reference($id)]);
         }
     }

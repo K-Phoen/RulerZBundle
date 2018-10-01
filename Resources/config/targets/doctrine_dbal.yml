@@ -1,6 +1,6 @@
 services:
     rulerz.target.doctrine_dbal:
-        class:  RulerZ\Target\DoctrineDBAL\DoctrineDBAL
+        class:  RulerZ\DoctrineDBAL\Target\DoctrineDBAL
         public: false
         tags:
             - { name: rulerz.target }

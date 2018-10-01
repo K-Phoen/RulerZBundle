@@ -1,6 +1,6 @@
 services:
     rulerz.target.elasticsearch:
-        class:  RulerZ\Target\Elasticsearch\Elasticsearch
+        class:  RulerZ\Elasticsearch\Target\Elasticsearch
         public: false
         tags:
             - { name: rulerz.target }

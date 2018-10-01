@@ -92,7 +92,7 @@ Configuration reference
 ```yaml
 # app/config/config.yml
 
-kphoen_rulerz:
+rulerz:
     cache: "%kernel.cache_dir%/rulerz"
     debug: "%kernel.debug%"
 
@@ -102,7 +102,7 @@ kphoen_rulerz:
         doctrine_dbal: false
         eloquent: false
         pomm: false
-        elastica: false
+        solarium: false
         elasticsearch: false
 ```
 
